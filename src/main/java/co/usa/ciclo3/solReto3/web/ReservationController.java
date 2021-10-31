@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import co.usa.ciclo3.solReto3.model.Reservation;
+import co.usa.ciclo3.solReto3.repository.CountClient;
+import co.usa.ciclo3.solReto3.repository.StatusReservation;
 import co.usa.ciclo3.solReto3.service.ReservationServices;
 
 import java.util.List;
@@ -44,6 +46,31 @@ public class ReservationController {
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation update(@RequestBody Reservation p){
         return reservationServices.update(p);
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GetMapping("/report-status")
+    public StatusReservation getReservas(){
+        return reservationServices.reporteStatusServicio();
+    }
+    
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getReservasTiempo (@PathVariable("dateOne")String dateOne, @PathVariable("dateTwo")String dateTwo ){
+        return reservationServices.reporteTiempoServicio(dateOne, dateTwo);
+    }
+    
+    @GetMapping("/report-clients")
+    public List<CountClient> getClientes(){
+        return reservationServices.reporteClientesServicio();
     }
 
 }
