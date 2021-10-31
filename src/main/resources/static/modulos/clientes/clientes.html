@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <!-- Ionic icons -->
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <title>Clientes</title>
+</head>
+
+<body>
+  <div class="d-flex" id="content-wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-container" class="bg-primary">
+
+      <div class="menu">
+
+        <a href="../../index.html" class="d-block text-light p-3 border-0"><i class="icon ion-md-menu lead mr-2"></i>
+          Home</a>
+
+        <a href="../categorias/categorias.html" class="d-block text-light p-3 border-0"><i class="icon ion-md-apps lead mr-2"></i>
+        Categorias</a>
+
+        <a href="../fincas/finca.html" class="d-block text-light p-3 border-0"><i class="icon ion-md-home lead mr-2"></i>
+          Fincas</a>
+          
+        <a href="clientes.html" class="d-block text-light p-3 border-0"><i class="icon ion-md-people lead mr-2"></i>
+        Clientes</a>
+
+        <a href="../mensajes/mensajes.html" class="d-block text-light p-3 border-0"><i class="icon ion-md-mail-open lead mr-2"></i>
+        Mensajes</a>
+
+        <a href="../reservacion/reservar.html" class="d-block text-light p-3 border-0"> <i class="icon ion-md-calendar lead mr-2"></i>
+        Reservar</a>
+
+      </div>
+    </div>
+    <!-- Fin sidebar -->
+
+    <div class="w-100">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container">
+          <div class="logo">
+            <h1 class="font-weight-bold mb-0">Administrar Clientes</h1>
+          </div>
+        </div>
+      </nav>
+      <!-- Fin Navbar -->
+      <br><br>
+      <!-- Page Content -->
+      <div id="content" class="bg-grey w-100">        
+        <div class="container">
+          <div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clientesModal">
+              Crear Clientes
+            </button>
+          </div>
+          <br>
+          <div class="row">
+              <div class="col">
+                  <table id="tabla-client" class="table">
+                      <thead>
+                        <tr>                          
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Edad</th>
+                          <th scope="col">E-mail</th>
+                          <th scope="col">Contraseña</th>
+                          <th scope="col"></th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        
+                      </tbody>
+                    </table>
+              </div>
+          </div>
+        </div>        
+      </div>
+      <!-- End Page Content -->
+    </div>
+
+  <!-- Modal crear fincas -->
+  <div class="modal fade" id="clientesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar Cliente</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <form id="farm-form" class="row g-3">
+                    <div class="col-12">
+                      <label for="txtname" class="form-label">Nombre</label>
+                      <input type="text" class="form-control" id="txtname" >
+                    </div>
+                    <div class="col-12">
+                      <label for="txtEdad" class="form-label">Edad</label>
+                      <input type="number" class="form-control" id="txtEdad" >
+                    </div>      
+                    <div class="col-12">
+                      <label for="txtEmail" class="form-label">E-mail</label>
+                      <input type="text" class="form-control" id="txtEmail" >
+                    </div>     
+                    <div class="col-12">
+                      <label for="txtPass" class="form-label">Contraseña</label>
+                      <input type="text" class="form-control" id="txtPass" >
+                    </div>         
+                  </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="add-btn" type="button" class="btn btn-success">Crear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal editar fincas -->
+  <div class="modal fade" id="editarclientesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar finca</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <form id="farm-form" class="row g-3">
+                    <div class="col-12">
+                      <label for="einputName" class="form-label">Nombre</label>
+                      <input type="text" class="form-control" id="einputName" >
+                    </div>
+                    <div class="col-12">
+                      <label for="einputage" class="form-label">Edad</label>
+                      <input type="text" class="form-control" id="einputage" >
+                    </div>  
+                    <div class="col-12">
+                      <label for="einputemail" class="form-label">E-Mail</label>
+                      <input type="text" class="form-control" id="einputemail" >
+                    </div>
+                    <div class="col-12">
+                      <label for="einputpassword" class="form-label">Contraseña</label>
+                      <input type="text" class="form-control" id="einputpassword" >
+                    </div>                   
+                    <input type="hidden" id="einputID" >                   
+                  </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="edit-btn" type="button" class="btn btn-success">Editar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/scriptClientes.js" ></script>
+</body>
+
+</html>
