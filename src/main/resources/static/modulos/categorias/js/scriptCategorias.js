@@ -9,7 +9,7 @@ $(function(){
 });
 
 function listarCategorias(){
-    let url = 'http://localhost:81/api/Category/all';
+    let url = 'http://152.67.45.211:81/api/Category/all';
     $.getJSON(url).done(function(data){
         //console.log(data);
         tbody = $('#tabla-category tbody');        
@@ -32,7 +32,7 @@ function eliminarCategory(){
         ev.preventDefault();
         let tr = $(this).closest('tr');
         let id = tr.data('id');
-        let myurl = 'http://localhost:81/api/Category/'+id;
+        let myurl = 'http://152.67.45.211:81/api/Category/'+id;
         $.ajax({
             url:myurl,
             type:'DELETE',
@@ -48,7 +48,7 @@ function crearCategory(){
         ev.preventDefault();
         let inputname = $('#txtname').val();
         let inputdescripcion = $('#txtDescripcion').val();        
-        let url = 'http://localhost:81/api/Category/save';
+        let url = 'http://152.67.45.211:81/api/Category/save';
         $.ajaxSetup({
             contentType: "application/json; charset=utf-8"
         });
@@ -71,7 +71,7 @@ function mostarEditarCategoriaModal(){
         ev.preventDefault();
         let tr = $(this).closest('tr');
         let id = tr.data('id');
-        let myurl = 'http://localhost:81/api/Category/'+id;
+        let myurl = 'http://152.67.45.211:81/api/Category/'+id;
         $.getJSON(myurl)
         .done(function(data){
             $('#einputID').val(data.id);
@@ -85,7 +85,7 @@ function mostarEditarCategoriaModal(){
 
 function editarCategoria(){
     $("#edit-btn").on('click',function(ev){
-        let myurl = 'http://localhost:81/api/Category/update';
+        let myurl = 'http://152.67.45.211:81/api/Category/update';
         let eID = $('#einputID').val();
         let eName= $('#einputName').val();
         let edescription = $('#einputdescription').val();

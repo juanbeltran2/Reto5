@@ -10,7 +10,7 @@ $(function(){
 });
 
 function listarFincas(){
-    let url = 'http://localhost:81/api/Farm/all';
+    let url = 'http://152.67.45.211:81/api/Farm/all';
     $.getJSON(url).done(function(data){
         //console.log(data);
         tbody = $('#tabla-Farm tbody');        
@@ -35,7 +35,7 @@ function eliminarFarm(){
         ev.preventDefault();
         let tr = $(this).closest('tr');
         let id = tr.data('id');
-        let myurl = 'http://localhost:81/api/Farm/'+id;
+        let myurl = 'http://152.67.45.211:81/api/Farm/'+id;
         $.ajax({
             url:myurl,
             type:'DELETE',
@@ -63,7 +63,7 @@ function crearFinca(){
         contentType: "application/json; charset=utf-8",
         dataType: 'JSON',
         data: JSON.stringify(var2),            
-        url:"http://localhost:81/api/Farm/save",
+        url:"http://152.67.45.211:81/api/Farm/save",
         success:function(response) {
             console.log(response);
             console.log("Se guardo correctamente");
@@ -82,7 +82,7 @@ function mostarEditarFarmModal(){
         ev.preventDefault();
         let tr = $(this).closest('tr');
         let id = tr.data('id');
-        let myurl = 'http://localhost:81/api/Farm/'+id;
+        let myurl = 'http://152.67.45.211:81/api/Farm/'+id;
         $.getJSON(myurl)
         .done(function(data){
             $('#einputID').val(data.id);
@@ -98,7 +98,7 @@ function mostarEditarFarmModal(){
 
 function editarFarm(){
     $("#edit-btn").on('click',function(ev){
-        let myurl = 'http://localhost:81/api/Farm/update';
+        let myurl = 'http://152.67.45.211:81/api/Farm/update';
         let eID = $('#einputID').val();
         let eName= $('#einputName').val();
         let eAddress= $('#einputdireccion').val();
@@ -120,7 +120,7 @@ function editarFarm(){
 function autoInicioCategoria(){
     console.log("se esta ejecutando")
     $.ajax({
-        url:"http://localhost:81/api/Category/all",
+        url:"http://152.67.45.211:81/api/Category/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){

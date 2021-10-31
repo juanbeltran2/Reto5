@@ -9,7 +9,7 @@ $(function(){
 });
 
 function listarClientes(){
-    let url = 'http://localhost:81/api/Client/all';
+    let url = 'http://152.67.45.211:81/api/Client/all';
     $.getJSON(url).done(function(data){
         //console.log(data);
         tbody = $('#tabla-client tbody');        
@@ -35,7 +35,7 @@ function eliminarClient(){
         let tr = $(this).closest('tr');
         let id = tr.data('id');
         console.log(id);
-        let myurl = 'http://localhost:81/api/Client/'+id;
+        let myurl = 'http://152.67.45.211:81/api/Client/'+id;
         $.ajax({
             url:myurl,
             type:'DELETE',
@@ -53,7 +53,7 @@ function crearClient(){
         let inputage = $('#txtEdad').val();
         let inputemail = $('#txtEmail').val();
         let inputpass = $('#txtPass').val();         
-        let url = 'http://localhost:81/api/Client/save';
+        let url = 'http://152.67.45.211:81/api/Client/save';
         $.ajaxSetup({
             contentType: "application/json; charset=utf-8"
         });
@@ -76,7 +76,7 @@ function mostarEditarClienteModal(){
         ev.preventDefault();
         let tr = $(this).closest('tr');
         let id = tr.data('id');
-        let myurl = 'http://localhost:81/api/Client/'+id;
+        let myurl = 'http://152.67.45.211:81/api/Client/'+id;
         $.getJSON(myurl)
         .done(function(data){
             $('#einputID').val(data.idClient);
@@ -92,7 +92,7 @@ function mostarEditarClienteModal(){
 
 function editarCategoria(){
     $("#edit-btn").on('click',function(ev){
-        let myurl = 'http://localhost:81/api/Client/update';
+        let myurl = 'http://152.67.45.211:81/api/Client/update';
         let eID = $('#einputID').val();
         let eName= $('#einputName').val();
         let eAge = $('#einputage').val();

@@ -12,7 +12,7 @@ $(function(){
 
 function listarReservas(){
     
-    let url = 'http://localhost:81/api/Reservation/all';
+    let url = 'http://152.67.45.211:81/api/Reservation/all';
     $.getJSON(url).done(function(data){
         //console.log(data);
         tbody = $('#tabla-Reservas tbody');        
@@ -36,7 +36,7 @@ function eliminarReserva(){
         ev.preventDefault();
         let tr = $(this).closest('tr');
         let id = tr.data('id');
-        let myurl = 'http://localhost:81/api/Reservation/'+id;
+        let myurl = 'http://152.67.45.211:81/api/Reservation/'+id;
         $.ajax({
             url:myurl,
             type:'DELETE',
@@ -63,7 +63,7 @@ function crearReserva(){
         contentType: "application/json; charset=utf-8",
         dataType: 'JSON',
         data: JSON.stringify(var2),            
-        url:"http://localhost:81/api/Reservation/save",
+        url:"http://152.67.45.211:81/api/Reservation/save",
         success:function(response) {
             
             alert("Se guardo correctamente");
@@ -81,7 +81,7 @@ function mostarEditarReservaModal(){
         ev.preventDefault();
         let tr = $(this).closest('tr');
         let id = tr.data('id');
-        let myurl = 'http://localhost:81/api/Reservation/'+id;
+        let myurl = 'http://152.67.45.211:81/api/Reservation/'+id;
         $.getJSON(myurl)
         .done(function(data){
             console.log(data);
@@ -96,7 +96,7 @@ function mostarEditarReservaModal(){
 
 function editarReservation(){
     $("#edit-btn").on('click',function(ev){
-        let myurl = 'http://localhost:81/api/Reservation/update';
+        let myurl = 'http://152.67.45.211:81/api/Reservation/update';
         let eID = $('#einputID').val();
         let eStartDate= $('#eStartDate').val();
         let eDevolutionDate= $('#eDevolutionDate').val();
@@ -116,7 +116,7 @@ function editarReservation(){
 function autoInicioClient(){
     //console.log("se esta ejecutando")
     $.ajax({
-        url:"http://localhost:81/api/Client/all",
+        url:"http://152.67.45.211:81/api/Client/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -133,7 +133,7 @@ function autoInicioClient(){
 function autoInicioFarm(){
     //console.log("se esta ejecutando")
     $.ajax({
-        url:"http://localhost:81/api/Farm/all",
+        url:"http://152.67.45.211:81/api/Farm/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
